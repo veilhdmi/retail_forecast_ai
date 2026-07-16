@@ -1,9 +1,15 @@
+import os
+
 import streamlit as st
 from dotenv import load_dotenv
 
 from agent import run_turn
 
 load_dotenv()
+
+for _key in ("ANTHROPIC_API_KEY", "GCP_PROJECT", "GOOGLE_CREDENTIALS_JSON"):
+    if _key in st.secrets:
+        os.environ[_key] = st.secrets[_key]
 
 st.set_page_config(page_title="Stock Planner AI", page_icon="📦")
 
