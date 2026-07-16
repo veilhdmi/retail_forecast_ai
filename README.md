@@ -4,9 +4,11 @@ A chat assistant for inventory planning. Instead of scrolling through dashboards
 
 ## Demo
 
-![Stock Planner AI answering a question about overstock risk](assets/demo.png)
+Same conversation, split in two because it scrolled past one screen:
 
-*(drop your screenshot at `assets/demo.png`)*
+![Stock Planner AI summarizing the last 30 days of sales and flagging overstock risk](assets/demo1.png)
+
+![Stock Planner AI answering a follow-up question with a detailed overstock breakdown](assets/demo2.png)
 
 ## Why I built this
 
