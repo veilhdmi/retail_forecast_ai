@@ -12,7 +12,7 @@ Same conversation, split in two because it scrolled past one screen:
 
 ## Why I built this
 
-Most "AI + data" demos I kept seeing were either a chatbot with no real data behind it, or a dashboard with no chat. I wanted to combine the two properly: a small dbt project that builds real marts on top of a public retail dataset, a BigQuery ML model that forecasts demand per category, and an agent on top that decides which query to run depending on what you asked — instead of an LLM hallucinating numbers, or me writing a rigid form with 10 filters nobody wants to touch.
+I wanted to practice the analytics engineer stack I actually use (dbt + a warehouse) but push it a bit further with an AI layer on top, instead of just another dashboard. This was my attempt: a small dbt project on a public retail dataset, a BigQuery ML forecast, and a chat agent that queries the real numbers instead of guessing them.
 
 ## How it works
 
