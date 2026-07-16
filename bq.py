@@ -1,10 +1,18 @@
+import json
 import os
 
 from google.cloud import bigquery
+from google.oauth2 import service_account
 
 
 def _client() -> bigquery.Client:
-    return bigquery.Client(project=os.environ["GCP_PROJECT"])
+    project = os.environ["GCP_PROJECT"]
+    creds_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
+    if creds_json:
+        info = json.loads(creds_json)
+        credentials = service_account.Credentials.from_service_account_info(info)
+        return bigquery.Client(project=project, credentials=credentials)
+    return bigquery.Client(project=project)
 
 
 def fetch_recent_sales_summary(days: int = 14) -> list[dict]:
