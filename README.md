@@ -54,6 +54,6 @@ streamlit run app.py
 
 ## Sample questions
 
-- "¿qué categorías están en riesgo de quiebre de stock?"
-- "cuáles fueron las categorías más vendidas en los últimos 30 días?"
-- "hay algo con overstock que debería preocuparme?"
+- "which categories are at risk of running out of stock?"
+- "what were the best-selling categories in the last 30 days?"
+- "is there anything overstocked that I should worry about?"

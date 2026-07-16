@@ -7,23 +7,23 @@ from bq import fetch_forecast_vs_stock, fetch_recent_sales_summary
 GEN_MODEL = "claude-haiku-4-5-20251001"
 
 SYSTEM_PROMPT = (
-    "Eres un asistente de planeación de inventario para un retailer. Tienes "
-    "herramientas para consultar ventas recientes y comparar stock actual vs. "
-    "el forecast de demanda (BigQuery ML). Usa las herramientas para responder "
-    "con números reales, no inventes cifras. Responde en español, directo y "
-    "breve, como si hablaras con un stock planner que ya conoce el negocio."
+    "You are an inventory planning assistant for a retailer. You have tools "
+    "to check recent sales and compare current stock vs. the demand forecast "
+    "(BigQuery ML). Use the tools to answer with real numbers, never make up "
+    "figures. Reply in English, direct and brief, like you're talking to a "
+    "stock planner who already knows the business."
 )
 
 TOOLS = [
     {
         "name": "get_recent_sales_summary",
-        "description": "Unidades vendidas por categoría de producto en los últimos N días.",
+        "description": "Units sold per product category over the last N days.",
         "input_schema": {
             "type": "object",
             "properties": {
                 "days": {
                     "type": "integer",
-                    "description": "Cuántos días hacia atrás mirar. Default 14.",
+                    "description": "How many days to look back. Default 14.",
                 }
             },
         },
@@ -31,9 +31,9 @@ TOOLS = [
     {
         "name": "check_overstock",
         "description": (
-            "Stock actual vs. forecast de demanda a 14 días por categoría. "
-            "Úsalo para detectar riesgo de overstock (stock >> demanda) o "
-            "quiebre de stock (stock << demanda)."
+            "Current stock vs. the 14-day demand forecast per category. "
+            "Use it to spot overstock risk (stock >> demand) or "
+            "stockout risk (stock << demand)."
         ),
         "input_schema": {"type": "object", "properties": {}},
     },
